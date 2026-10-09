@@ -1,5 +1,13 @@
 # Release Notes
 
+## 1.0.1 — 2026-10-09
+
+### Fixed
+- **First line of output repeated.** The first line of a command's output was shown twice, as in upstream. Each line now appears once.
+
+### Added
+- **README.** Covers what the app does, installation, usage, known limitations and how to build.
+
 ## 1.0.0 — 2026-10-09
 
 First release of this fork of [TorstenH82/JunSUnShell](https://github.com/TorstenH82/JunSUnShell), based on upstream 1.4.

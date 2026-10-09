@@ -46,7 +46,6 @@ The code is in [`MainActivity.java`](app/src/main/java/com/thf/junsunshell/MainA
 - **The app freezes while a command runs.** Commands run on the UI thread with no timeout. A command that doesn't exit on its own, like `logcat` without `-d`, `top` or `ping` without `-c`, will hang the app until you force-stop it.
 - **No interactive commands.** There is no keyboard input after the command starts, so editors, pagers and prompts won't work.
 - **Output order isn't guaranteed.** Standard output and error are read in parallel, so their lines can be interleaved out of order.
-- **First line repeated.** The first line of output is shown twice (inherited from upstream).
 - **Other devices.** On units whose `su` doesn't use this password, every command fails or returns nothing.
 
 ## Building

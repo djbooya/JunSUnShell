@@ -6,6 +6,7 @@ import android.os.*;
 import android.util.Log;
 import android.content.Context;
 import android.widget.Toast;
+import android.text.TextUtils;
 import com.thf.junsunshell.databinding.ActivityMainBinding;
 import com.thf.junsunshell.utils.Util;
 import java.util.List;
@@ -31,17 +32,9 @@ public class MainActivity extends AppCompatActivity {
     public void execCommand(View view) {
         String command = binding.txtCommand.getText().toString();
         List<String> output;
-        String strOutput = "";
         try {
             output = util.sudoForResult(command);
-
-            for (String line : output) {
-                if ("".equals(strOutput)) {
-                    strOutput = line;
-                }
-                strOutput += "\n" + line;
-            }
-            binding.txtOutput.setText(strOutput);
+            binding.txtOutput.setText(TextUtils.join("\n", output));
         } catch (Util.SuCommandException ex) {
             binding.txtOutput.setText(ex.getMessage());
         }
