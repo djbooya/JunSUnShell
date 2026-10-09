@@ -7,7 +7,10 @@ This is a fork of [TorstenH82/JunSUnShell](https://github.com/TorstenH82/JunSUnS
 ## Features
 
 - **Root commands without a root manager.** It uses the head unit's own `su` binary, which these units protect with a fixed password argument. No Magisk or SuperSU is needed.
-- **Output on screen.** The command's standard output and error appear in the box below it. You can select and copy the text.
+- **Command pop-up.** Commands are typed in a pop-up that opens when the app starts and from the **Run command** button.
+- **Command history.** Your last 50 commands are saved on the device and listed in the pop-up, newest first.
+- **Obvious exit.** A large red **EXIT** button closes the app and removes it from the recent apps list.
+- **Output on screen.** The command and its standard output and error are shown on the main screen. You can select and copy the text.
 - **Small and simple.** One screen, no background service, no settings.
 
 ## Requirements
@@ -24,9 +27,18 @@ This is a fork of [TorstenH82/JunSUnShell](https://github.com/TorstenH82/JunSUnS
 
 ## Usage
 
-1. Type a command in the top field, e.g. `id`, `getprop ro.build.display.id` or `ls /data`.
-2. Tap the run button to the right of the field.
-3. The output appears in the large box below.
+1. The command pop-up opens when the app starts. Later, tap **Run command** to open it again.
+2. Type a command, e.g. `id`, `getprop ro.build.display.id` or `ls /data`, or tap one in the history list to copy it into the field.
+3. Tap **Run** or press Enter on the keyboard.
+4. The command and its output appear on the main screen.
+5. Tap **EXIT** when you're done.
+
+In the history list:
+- **Tap** a command to put it in the field, where you can edit it before running.
+- **Long-press** a command to remove it.
+- **Clear history** removes every command.
+
+Running a command moves it to the top of the history. The same command is never listed twice.
 
 Tips:
 - The field takes one line. To run several commands, join them with `;` or `&&`, e.g. `cd /data/local/tmp && ls -l`.
@@ -36,10 +48,12 @@ Tips:
 ## How It Works
 
 1. On launch, the app reads the `su` command line from `app/src/main/res/values/strings.xml` (`su @#zxcvbnm…,.`).
-2. When you tap run, it starts that `su` process, writes your command followed by `exit` to its input, and reads standard output and standard error on two threads.
+2. When you run a command, it starts that `su` process, writes your command followed by `exit` to its input, and reads standard output and standard error on two threads.
 3. When the process exits, the collected lines are shown in the output box. If `su` can't be started, the error message is shown instead.
 
-The code is in [`MainActivity.java`](app/src/main/java/com/thf/junsunshell/MainActivity.java) and [`utils/Util.java`](app/src/main/java/com/thf/junsunshell/utils/Util.java).
+4. The command is added to the history, which is saved in the app's private storage (SharedPreferences).
+
+The code is in [`MainActivity.java`](app/src/main/java/com/thf/junsunshell/MainActivity.java), [`utils/Util.java`](app/src/main/java/com/thf/junsunshell/utils/Util.java) and [`utils/CommandHistory.java`](app/src/main/java/com/thf/junsunshell/utils/CommandHistory.java).
 
 ## Known Limitations
 

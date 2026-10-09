@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">JunSUnShell</string>
     <string name="su">su @#zxcvbnmasdfghjklqwertyuiop1234567890,.</string>
+    <string name="run_command">Run command</string>
+    <string name="run">Run</string>
+    <string name="cancel">Cancel</string>
+    <string name="exit">EXIT</string>
+    <string name="command_hint">Shell command</string>
+    <string name="command_empty">Enter a command</string>
+    <string name="history_title">History (tap to use, long-press to remove)</string>
+    <string name="history_empty">No commands yet.</string>
+    <string name="clear_history">Clear history</string>
+    <string name="history_removed">Removed from history</string>
+    <string name="no_command_yet">Tap Run command to start.</string>
+    <string name="no_output">(no output)</string>
 </resources>

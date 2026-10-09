@@ -1,5 +1,20 @@
 # Release Notes
 
+## 1.1.0 — 2026-10-09
+
+### Added
+- **Command pop-up.** Commands are typed in a pop-up instead of a field at the top of the screen. It opens when the app starts and from the new **Run command** button. **Run** or Enter on the keyboard runs the command, and **Cancel** closes the pop-up.
+- **Command history.** The pop-up lists your last 50 commands, newest first, and keeps them after the app is closed.
+  - Tap a command to copy it into the field for editing.
+  - Long-press a command to remove it.
+  - **Clear history** removes every command.
+  - Running a command again moves it to the top instead of listing it twice.
+- **EXIT button.** A large red button that closes the app and removes it from the recent apps list.
+
+### Changed
+- **Main screen.** It shows the command that ran (`$ command`) above its output. The output is read-only, but you can still select and copy it. Commands with no output show "(no output)".
+- **Removed the old run button images,** which are no longer used.
+
 ## 1.0.1 — 2026-10-09
 
 ### Fixed
