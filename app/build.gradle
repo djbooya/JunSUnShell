@@ -3,15 +3,16 @@ plugins {
 }
 
 android {
-    compileSdk 32
-    buildToolsVersion "33.0.0"
+    namespace "com.thf.junsunshell"
+    compileSdk 35
+    buildToolsVersion "35.0.1"
 
     defaultConfig {
         applicationId "com.thf.junsunshell"
         minSdk 21
         targetSdk 26
-        versionCode 14
-        versionName "1.4"
+        versionCode 15
+        versionName "1.0.0"
     }
 
     buildTypes {

@@ -7,7 +7,6 @@ import android.util.Log;
 import android.content.Context;
 import android.widget.Toast;
 import com.thf.junsunshell.databinding.ActivityMainBinding;
-import com.itsaky.androidide.logsender.LogSender;
 import com.thf.junsunshell.utils.Util;
 import java.util.List;
 
@@ -20,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        // Remove this line if you don't want AndroidIDE to show this app's logs
-        LogSender.startLogging(this);
         super.onCreate(savedInstanceState);
         // Inflate and get instance of binding
         binding = ActivityMainBinding.inflate(getLayoutInflater());
