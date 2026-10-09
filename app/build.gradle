@@ -37,3 +37,14 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.google.android.material:material:1.6.1'
 }
+
+// Keep a copy of every debug build in apk_releases/, named by version
+def releaseApkName = "JunSUnShell-${android.defaultConfig.versionName}-debug.apk"
+def copyDebugApkToReleases = tasks.register('copyDebugApkToReleases', Copy) {
+    from(layout.buildDirectory.file('outputs/apk/debug/app-debug.apk'))
+    into(rootProject.layout.projectDirectory.dir('apk_releases'))
+    rename { releaseApkName }
+}
+afterEvaluate {
+    tasks.named('assembleDebug') { finalizedBy copyDebugApkToReleases }
+}
